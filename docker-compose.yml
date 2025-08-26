@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15-alpine
+    ports: 
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: myDB
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: myDB
+
+    ports:
+      - 3000:3000
+  
+volumes:
+  db_data:
