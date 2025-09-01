@@ -1,3 +1,58 @@
-node_modules/
-db/
-compose.yaml
+# -------------------------
+# Terraform
+# -------------------------
+# State files
+*.tfstate
+*.tfstate.backup
+
+# Crash logs
+crash.log
+
+# Terraform directory with plugins
+.terraform/
+
+# Override files (local edits)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI auto-generated plan files
+*.tfplan
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Backup files
+*.backup
+
+# -------------------------
+# Docker
+# -------------------------
+# Ignore Docker local environment files
+*.env
+docker-compose.override.yml
+
+# Docker image layers, volumes, build cache
+**/node_modules/
+**/dist/
+**/build/
+**/.docker/
+**/.cache/
+
+# -------------------------
+# OS / IDE
+# -------------------------
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# VSCode
+.vscode/
+
+# Python cache (if used)
+__pycache__/
+*.pyc
