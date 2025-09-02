@@ -24,3 +24,8 @@ output "eks_cluster_endpoint" {
 output "eks_node_group_role_arn" {
   value = module.eks_bottlerocket.eks_managed_node_groups["example"].iam_role_arn
 }
+
+output "alb_controller_irsa_role_arn" {
+  value       = module.alb_irsa.iam_role_arn
+  description = "IAM role ARN used by the aws-load-balancer-controller service account"
+}
